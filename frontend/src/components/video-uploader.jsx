@@ -34,7 +34,7 @@ function VideoUploader() {
 
       if (response.ok) {
         setStatus(`✅ Success: ${text}`);
-        setTimeout(() => setShowPlayer(true), 2000); // give time for HLS segments
+        setTimeout(() => setShowPlayer(true), 4000); // give time for HLS segments
       } else {
         setStatus(`❌ Error: ${text}`);
       }

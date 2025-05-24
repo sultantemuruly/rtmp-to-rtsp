@@ -3,7 +3,7 @@ import Hls from 'hls.js';
 
 const RtmpPlayer = ({ streamKey = 'stream' }) => {
   const videoRef = useRef(null);
-  const streamUrl = `http://localhost:8000/live/${streamKey}/index.m3u8`;
+  const streamUrl = `http://localhost:4000/live/${streamKey}/index.m3u8`;
 
   useEffect(() => {
     if (Hls.isSupported() && videoRef.current) {

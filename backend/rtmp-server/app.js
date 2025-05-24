@@ -3,6 +3,7 @@ import multer from 'multer';
 import ffmpeg from 'fluent-ffmpeg';
 import fs from 'fs';
 import cors from 'cors';
+import path from 'path';
 
 import { startHlsConversion } from './hls-converter.js';
 
@@ -10,6 +11,7 @@ const app = express();
 const upload = multer({ dest: 'uploads/' });
 
 app.use(cors());
+app.use('/live', express.static(path.join(process.cwd(), 'media/live')));
 
 app.post('/stream', upload.single('video'), (req, res) => {
   const filePath = req.file.path;
