@@ -2,9 +2,12 @@ import express from 'express';
 import multer from 'multer';
 import ffmpeg from 'fluent-ffmpeg';
 import fs from 'fs';
+import cors from 'cors';
 
 const app = express();
 const upload = multer({ dest: 'uploads/' });
+
+app.use(cors());
 
 app.post('/stream', upload.single('video'), (req, res) => {
   const filePath = req.file.path;
