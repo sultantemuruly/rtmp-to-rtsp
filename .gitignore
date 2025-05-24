@@ -4,3 +4,5 @@
 # Ignore all package.json and package-lock.json files recursively
 **/package.json
 **/package-lock.json
+
+**/uploads/
