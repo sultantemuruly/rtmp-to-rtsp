@@ -1,0 +1,7 @@
+rtmpDisable: yes
+protocols: [tcp]
+rtsp: yes
+rtspAddress: :8554
+paths:
+  all:
+    source: publisher

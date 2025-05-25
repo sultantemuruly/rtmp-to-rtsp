@@ -1,4 +1,4 @@
-# Ignore all node_modules folders recursively
 **/node_modules/
 
 **/uploads/
+**/media/
