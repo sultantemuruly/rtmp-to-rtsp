@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import RtmpPlayer from './rtmp-player';
 
 function VideoUploader() {
   const [video, setVideo] = useState(null);
   const [status, setStatus] = useState('');
-  const [showPlayer, setShowPlayer] = useState(false);
 
   const handleFileChange = (e) => {
     setVideo(e.target.files[0]);
@@ -22,7 +20,6 @@ function VideoUploader() {
     formData.append('video', video);
 
     setStatus('⏳ Uploading and streaming...');
-     setShowPlayer(false);
 
     try {
       const response = await fetch('http://localhost:4000/stream', {
@@ -34,7 +31,6 @@ function VideoUploader() {
 
       if (response.ok) {
         setStatus(`✅ Success: ${text}`);
-        setTimeout(() => setShowPlayer(true), 4000); // give time for HLS segments
       } else {
         setStatus(`❌ Error: ${text}`);
       }
@@ -63,7 +59,6 @@ function VideoUploader() {
 
         {status && <p style={styles.status}>{status}</p>}
       </div>
-      {showPlayer && <RtmpPlayer streamKey="stream" />}
     </div>
   );
 }

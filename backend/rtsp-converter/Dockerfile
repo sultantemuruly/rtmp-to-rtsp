@@ -7,4 +7,4 @@ RUN npm install
 
 COPY . .
 
-CMD ["sh", "-c", "node app.js"]
+CMD ["node", "server.js"]

@@ -6,8 +6,6 @@ import cors from 'cors';
 import path from 'path';
 import fetch from 'node-fetch';
 
-import { startHlsConversion } from './hls-converter.js';
-
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
@@ -36,9 +34,6 @@ app.post('/stream', upload.single('video'), async (req, res) => {
     .audioCodec('aac')
     .on('start', async command => {
       console.log('[RTMP] FFmpeg started:', command);
-
-      // Start local HLS conversion
-      startHlsConversion();
 
       // Trigger RTSP conversion via HTTP request to converter server
       try {

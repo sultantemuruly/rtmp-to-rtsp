@@ -1,0 +1,22 @@
+services:
+  rtmp-server:
+    build:
+      context: ./rtmp-server
+    working_dir: /app
+    volumes:
+      - ./rtmp-server:/app
+    ports:
+      - "4000:4000"
+    restart: always
+    depends_on:
+      - rtsp-converter
+
+  rtsp-converter:
+    build:
+      context: ./rtsp-converter
+    working_dir: /app
+    volumes:
+      - ./rtsp-converter:/app
+    ports:
+      - "4001:4001"
+    restart: always
