@@ -20,8 +20,6 @@
 10. [Logging and Monitoring](#logging-and-monitoring)
 11. [Support for Multiple Streams](#support-for-multiple-streams)
 12. [Future Improvements](#future-improvements)
-13. [License](#license)
-14. [Contact](#contact)
 
 ---
 
